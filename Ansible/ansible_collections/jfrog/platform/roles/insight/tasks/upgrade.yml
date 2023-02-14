@@ -93,7 +93,7 @@
       environment:
         YQ_PATH: "{{ insight_thirdparty_path }}/yq"
   when:
-    - upgrade_wrapper_script.stat.exists
+    - upgrade_wrapper_script.skipped or upgrade_wrapper_script.stat.exists
     - download_insight.changed
 
 - name: Configure installer info
